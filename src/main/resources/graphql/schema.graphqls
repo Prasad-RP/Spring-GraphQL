@@ -1,0 +1,17 @@
+type ProductMaster{
+	productId:ID,
+	productName:String,
+	category:String,
+	price:Float,
+	stock:Int
+}
+
+type Query{
+	getAllProducts:[ProductMaster]
+	getAllProductsByCategory(category:String):[ProductMaster]
+}	 
+
+type Mutation{
+	updateStock(productId:ID,stock:Int):ProductMaster
+	receiveNewShipment(productId:ID,stock:Int):ProductMaster
+}
