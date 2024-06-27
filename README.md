@@ -55,7 +55,10 @@ query GetAllProducts {
     getAllProducts {
         productId
         productName
-        category
+        categoryMaster {
+            categoryName
+            categoryId
+        }
         price
         stock
     }
