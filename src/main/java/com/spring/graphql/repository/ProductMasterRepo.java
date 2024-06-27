@@ -10,6 +10,6 @@ import com.spring.graphql.entity.ProductMaster;
 @Repository
 public interface ProductMasterRepo extends JpaRepository<ProductMaster, Integer>{
 
-	List<ProductMaster> findAllByCategory(String category);
+	List<ProductMaster> findAllByCategoryMasterCategoryName(String category);
 
 }

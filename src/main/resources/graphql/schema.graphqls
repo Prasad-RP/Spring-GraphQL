@@ -1,7 +1,12 @@
+type CategoryMaster{
+	categoryId:ID,
+	categoryName:String
+}
+
 type ProductMaster{
 	productId:ID,
 	productName:String,
-	category:String,
+	categoryMaster:CategoryMaster,
 	price:Float,
 	stock:Int
 }

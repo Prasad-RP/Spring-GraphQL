@@ -1,12 +1,12 @@
 package com.spring.graphql.entity;
 
-import jakarta.persistence.CascadeType;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,23 +15,18 @@ import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
-@Table(name = "product_master")
+@Table(name = "category_master")
 @Getter
 @Setter
 @NoArgsConstructor
-public class ProductMaster {
+public class CategoryMaster {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer productId;
+	private Integer categoryId;
 
-	private String productName;
+	private String categoryName;
 
-	private Float price;
-
-	private Integer stock;
-
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
-	@JoinColumn(name = "categoryId")
-	private CategoryMaster categoryMaster;
+	@OneToMany(mappedBy = "categoryMaster")
+	private List<ProductMaster> productMasters;
 }

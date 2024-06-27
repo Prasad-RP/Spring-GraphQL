@@ -20,7 +20,7 @@ public class ProductService {
 	}
 
 	public List<ProductMaster> getByCategory(String category) {
-		return productMasterRepo.findAllByCategory(category);
+		return productMasterRepo.findAllByCategoryMasterCategoryName(category);
 	}
 
 	public ProductMaster updateStock(Integer id, Integer stock) {
